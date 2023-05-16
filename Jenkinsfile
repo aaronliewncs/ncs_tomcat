@@ -1,9 +1,9 @@
 pipeline {
     agent any
     environment {
-        ROOT_PATH  =  "/apache-tomcat-9.0.58"
+        ROOT_PATH  =  "/apache-tomcat-10.1.8"
         APP_PATH   =  "$ROOT_PATH/webapps"
-        TEMP_DIR   =  "${env.WORKSPACE}/web-thymeleaf-war"
+        TEMP_DIR   =  "C:/iconnect/jenkins_lab/ncs_tomcat/web-thymeleaf-war"
     }
     stages {
         stage('Build') {
