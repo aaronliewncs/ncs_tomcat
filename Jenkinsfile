@@ -13,7 +13,7 @@ pipeline {
                 echo "BuildNumber :: ${env.BUILD_NUMBER}"
                 
                 echo "generating war file"
-                sh "cd web-thymeleaf-war"
+                sh "ls"
                 echo "what now ${env.WORKSPACE}"
                 bat "mvn clean package"
                 sh "cd .."
