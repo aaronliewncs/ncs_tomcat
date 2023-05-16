@@ -3,7 +3,7 @@ pipeline {
     environment {
         ROOT_PATH  =  "/apache-tomcat-10.1.8"
         APP_PATH   =  "$ROOT_PATH/webapps"
-        TEMP_DIR   =  "C:/iconnect/jenkins_lab/ncs_tomcat/web-thymeleaf-war"
+        TEMP_DIR   =  "${env.WORKSPACE}/web-thymeleaf-war"
     }
     stages {
         stage('Build') {
@@ -13,7 +13,10 @@ pipeline {
                 echo "BuildNumber :: ${env.BUILD_NUMBER}"
                 
                 echo "generating war file"
+                sh "cd web-thymeleaf-war"
+                echo "what now ${env.WORKSPACE}"
                 bat "mvn clean package"
+                sh "cd .."
             }
         }
         stage('Test') {
