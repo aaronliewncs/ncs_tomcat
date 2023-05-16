@@ -39,15 +39,15 @@ pipeline {
                 echo "Remove older war files"
                 sh '''
                    ls -ltr $APP_PATH
-                   rm -rf $APP_PATH/sample*
+                   rm -rf $APP_PATH/web-thymeleaf-war*
 
                    echo "After removing older application (sample)"
                    ls -ltr $APP_PATH/
                    
                    echo "deploy new application"
                 '''
-                sh "ls -ltr ${TEMP_DIR}/sample_${env.BUILD_NUMBER}.war"
-                sh "cp ${TEMP_DIR}/sample_${env.BUILD_NUMBER}.war $APP_PATH/sample.war"
+                sh "ls -ltr ${TEMP_DIR}/web-thymeleaf-war_${env.BUILD_NUMBER}.war"
+                sh "cp ${TEMP_DIR}/web-thymeleaf-war_${env.BUILD_NUMBER}.war $APP_PATH/web-thymeleaf-war.war"
                 sh "ls -ltr $APP_PATH" 
             }
         }
